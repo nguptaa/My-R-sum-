@@ -1,0 +1,262 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Deedy - One Page Two Column Resume
+% LaTeX Template
+% Version 1.1 (30/4/2014)
+%
+% Original author:
+% Debarghya Das (http://debarghyadas.com)
+%
+% Original repository:
+% https://github.com/deedydas/Deedy-Resume
+%
+% IMPORTANT: THIS TEMPLATE NEEDS TO BE COMPILED WITH XeLaTeX
+%
+% This template uses several fonts not included with Windows/Linux by
+% default. If you get compilation errors saying a font is missing, find the line
+% on which the font is used and either change it to a font included with your
+% operating system or comment the line out to use the default font.
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+% TODO:
+% 1. Integrate biber/bibtex for article citation under publications.
+% 2. Figure out a smoother way for the document to flow onto the next page.
+% 3. Add styling information for a "Projects/Hacks" section.
+% 4. Add location/address information
+% 5. Merge OpenFont and MacFonts as a single sty with options.
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% CHANGELOG:
+% v1.1:
+% 1. Fixed several compilation bugs with \renewcommand
+% 2. Got Open-source fonts (Windows/Linux support)
+% 3. Added Last Updated
+% 4. Move Title styling into .sty
+% 5. Commented .sty file.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Known Issues:
+% 1. Overflows onto second page if any column's contents are more than the
+% vertical limit
+% 2. Hacky space on the first bullet point on the second column.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[]{deedy-resume-openfont}
+\usepackage{ragged2e}
+\usepackage{fontawesome}
+
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     LAST UPDATED DATE
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \lastupdated
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     TITLE NAME
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\namesection{Nikhil}{Gupta}
+{ \urlstyle{same}
+	\faGlobe \hspace{0mm} \url{http://ngupta.me} \\
+	\faEnvelope \hspace{0mm} \href{mailto:116CS0183@nitrtkl.ac.in}{116CS0183@nitrtkl.ac.in}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     COLUMN ONE
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{minipage}[t]{0.33\textwidth} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     EDUCATION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Education} 
+
+\subsection{National Institute}
+\subsection{of Technology, Rourkela}
+\descript{BTech in Computer Science}
+\descript{\& Engineering}
+Expected Grad: May 2020 \\
+\sectionsep
+
+\subsection{Liverpool International}
+\subsection{College, Nepal}
+\descript{Intermediate in Science}
+Grad: May 2015 \\
+\sectionsep
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     LINKS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Links} 
+\faGithub \hspace{0mm} Github:// \href{https://github.com/nguptaa}{\custombold{nguptaa}} \\
+\faLinkedinSquare \hspace{0mm} LinkedIn://  \href{https://www.linkedin.com/in/nguptaa}{\custombold{nguptaa}} \\
+% YouTube://  \href{https://www.youtube.com/user/DeedyDash007}{\custombold{DeedyDash007}} \\
+\faFacebookSquare \hspace{0mm} Facebook://  \href{https://facebook.com/nguptaa183}{\custombold{nguptaa183}} \\
+\faTwitter \hspace{0mm} Twitter://  \href{https://twitter.com/ngupta183}{\custombold{@ngupta183}} \\
+% Quora://  \href{https://www.quora.com/Debarghya-Das}{\custombold{Debarghya-Das}}
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     COURSEWORK
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Coursework}
+% \subsection{Graduate}
+% Advanced Machine Learning \\
+% Open Source Software Engineering \\
+% Advanced Interactive Graphics \\
+% Compilers + Practicum \\
+% Cloud Computing \\
+% \sectionsep
+
+\subsection{Undergraduate}
+Data Structures and Algorithms \\
+Database Management Systems\\
+Operating Systems Design\\
+Principles of Programming Language\\
+Theory of Computation\\
+Microprocessors \& Microcontrollers\\ 
+Data Communication\\
+Algorithm Analysis and Design\\
+Advanced Engineering Mathematics\\
+Computer Organization \& Architecture\\
+% Analog/Digital Electronics\\
+% Engineering Mechanics\\
+% Physics of Quantum World\\
+
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     SKILLS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Skills}
+\subsection{Programming}
+\descript{Languages:}
+Python* \textbullet{} C/C++ \textbullet{} JavaScript \\
+PHP* \textbullet{} HTML* \textbullet{} CSS* \\ 
+\descript{Libraries/Frameworks:}
+jQuery \textbullet{} NodeJS \textbullet{} Bootstrap  \\
+ExpressJS\\
+\descript{Databases:}
+MySQL* \textbullet{} MongoDB\\
+\descript{Familiar:}
+Git \textbullet{} GitHub \textbullet{} Shell
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     COLUMN TWO
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{minipage} 
+\hfill
+\begin{minipage}[t]{0.66\textwidth} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Projects
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Projects}
+
+\runsubsection{Microsoft Campus Club Website}\\
+% \descript{| KPCB Fellow + Software Engineering Intern }
+\location{May - July, 2018}
+% \vspace{\topsep} % Hacky fix for awkward extra vertical space
+Developed a fully responsive website(both frontend and backend) for the club throughout the summer from scratch completely on my own. Temporarily it's hosted at \url{https://msclubnitrkl.000webhostapp.com} Soon it will be live on NIT Rourkela subdomain. HTML, CSS, JavaScript are used in the frontend part, PHP in the backend and MySQL in the database.
+\sectionsep
+
+\runsubsection{NIT Rourkela Voice (CMS)}\\
+% \descript{| Software Engineering Intern }
+\location{March - April, 2018}
+NITRkl-voice is a content management system which I made for my DBMS project under Prof. Korra Sathya Babu. I coded both frontend and backend from scratch completely on my own. Temporarily it's hosted at \url{https://nikhilgupta.000webhostapp.com}. HTML, CSS, JavaScript are used in the frontend part, PHP in the backend and MySQL in the database.
+\sectionsep
+
+\runsubsection{Schedule Bot}\\
+% \descript{| Software Engineering Intern }
+\location{March - April, 2018}
+Schedule bot is a messenger based bot which I made during my freshman year when I was too annoyed with my paper timetable as I have to see it every other hour. This bot helps a person by letting them know their particular subject at a particular time when provided with respective section and lab group.
+\sectionsep
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Leadership
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Leadership}
+\runsubsection{Microsoft Campus Club}
+\descript{| Technical Coordinator}
+\location{2018 - Present | Rourkela, OD}
+Microsoft Campus Club is the most active, innovative and creative technical club that our institute has to date. I have never been so obsessed with technologies and never been so open-minded before I joined MCC. I joined the club during my freshmen year and was assigned as club technical coordinator at the end of my sophomore year.
+\sectionsep
+
+\runsubsection{Codenigma'18}
+\descript{| Event Coordinator}
+\location{2018 | Rourkela, OD}
+Codenigma is competitive programming challenge hosted on CodeChef/HackerRank and is conducted by Microsoft Campus Club. I along with other two coordinators made sure that everything runs smoothly during the event. I also made a few questions which were later uploaded in the programming challenge. The event was very successful compared to last years. We saw a growth of 200\% in total users who signed up for the competition compared to last year.
+\sectionsep
+
+\runsubsection{NITRUTSAV'18}
+\descript{| Event Coordinator}
+\location{2018 | Rourkela, OD}
+NITRUTSAV popularly known as NU is the annual cultural festival of the National Institute of Technology, Rourkela. It is an annual three-day-long carnival held towards the beginning of the month of February, organized by the Literary Society in association with the Art and Cultural Society of the Student Activity Center, NIT Rourkela, it includes various cultural performances and events based on a common theme. As being the event coordinator, I led a team of 15 volunteers and ensured that everything before and during the event runs smoothly from conception to clean up.
+\sectionsep
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     AWARDS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \section{Awards} 
+% \begin{tabular}{rll}
+% 2014	     & top 52/2500  & KPCB Engineering Fellow\\
+% 2014	     & 2\textsuperscript{nd} most points  & Google Code Jam, Qualification Round\\
+% 2014	     & 1\textsuperscript{st}/50  & Microsoft Coding Competition, Cornell\\
+% 2013	     & National  & Jump Trading Challenge Finalist\\
+% 2013     & 7\textsuperscript{th}/120 & CS 3410 Cache Race Bot Tournament  \\
+% 2012     & 2\textsuperscript{nd}/150 & CS 3110 Biannual Intra-Class Bot Tournament \\
+% 2011     & National & Indian National Mathematics Olympiad (INMO) Finalist \\
+% 2010     & National & Comp. Soc. of India's National Programming Contest\\
+% \end{tabular}
+% \sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     SOCIETIES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \section{Societies} 
+
+% \begin{tabular}{rll}
+% 2014 	& top 12\%ile    & Tau Beta Pi Engineering Honor Society\\
+% 2014   & National   & The Global Leadership and Education Forum (tGELF)\\
+% 2012   &  National  & Golden Key International Honor Society\\
+% 2012   &  National   & National Society of Collegiate Scholars\\
+% \end{tabular}
+% \sectionsep
+
+\end{minipage}
+\linebreak \linebreak 
+ \begin{flushleft} 
+ *More than 1000 lines.
+ \end{flushleft}
+ 
+\end{document}  \documentclass[]{article}
