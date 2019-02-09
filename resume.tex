@@ -1,262 +1,191 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Deedy - One Page Two Column Resume
-% LaTeX Template
-% Version 1.1 (30/4/2014)
-%
-% Original author:
-% Debarghya Das (http://debarghyadas.com)
-%
-% Original repository:
-% https://github.com/deedydas/Deedy-Resume
-%
-% IMPORTANT: THIS TEMPLATE NEEDS TO BE COMPILED WITH XeLaTeX
-%
-% This template uses several fonts not included with Windows/Linux by
-% default. If you get compilation errors saying a font is missing, find the line
-% on which the font is used and either change it to a font included with your
-% operating system or comment the line out to use the default font.
-% 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 
-% TODO:
-% 1. Integrate biber/bibtex for article citation under publications.
-% 2. Figure out a smoother way for the document to flow onto the next page.
-% 3. Add styling information for a "Projects/Hacks" section.
-% 4. Add location/address information
-% 5. Merge OpenFont and MacFonts as a single sty with options.
-% 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% CHANGELOG:
-% v1.1:
-% 1. Fixed several compilation bugs with \renewcommand
-% 2. Got Open-source fonts (Windows/Linux support)
-% 3. Added Last Updated
-% 4. Move Title styling into .sty
-% 5. Commented .sty file.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% Known Issues:
-% 1. Overflows onto second page if any column's contents are more than the
-% vertical limit
-% 2. Hacky space on the first bullet point on the second column.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[a4paper,10pt]{article}
 
-\documentclass[]{deedy-resume-openfont}
-\usepackage{ragged2e}
-\usepackage{fontawesome}
+%A Few Useful Packages
+\usepackage{amsmath}
+\usepackage{marvosym}
+\usepackage{fontspec} 					%for loading fonts
+\usepackage{xunicode,xltxtra,url,parskip} 	%other packages for formatting
+\RequirePackage{color,graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[big]{layaureo} 				%better formatting of the A4 page
+% an alternative to Layaureo can be ** \usepackage{fullpage} **
+\usepackage{supertabular} 				%for Grades
+\usepackage{titlesec}					%custom \section
 
+%Setup hyperref package, and colours for links
+\usepackage{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour, linkcolor=linkcolour}
 
+%FONTS
+\defaultfontfeatures{Mapping=tex-text}
+%\setmainfont[SmallCapsFont = Fontin SmallCaps]{Fontin}
+%%% modified for Karol Kozioł for ShareLaTeX use
+\setmainfont[
+SmallCapsFont = Fontin-SmallCaps.otf,
+BoldFont = Fontin-Bold.otf,
+ItalicFont = Fontin-Italic.otf
+]
+{Fontin.otf}
+%%%
+
+%CV Sections inspired by: 
+%http://stefano.italians.nl/archives/26
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{3pt}{3pt}
+%Tweak a bit the top margin
+%\addtolength{\voffset}{-1.3cm}
+
+%Italian hyphenation for the word: ''corporations''
+\hyphenation{im-pre-se}
+
+%-------------WATERMARK TEST [**not part of a CV**]---------------
+\usepackage[absolute]{textpos}
+
+\setlength{\TPHorizModule}{30mm}
+\setlength{\TPVertModule}{\TPHorizModule}
+\textblockorigin{2mm}{0.65\paperheight}
+\setlength{\parindent}{0pt}
+
+%--------------------BEGIN DOCUMENT----------------------
 \begin{document}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%     LAST UPDATED DATE
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \lastupdated
+%WATERMARK TEST [**not part of a CV**]---------------
+%\font\wm=''Baskerville:color=787878'' at 8pt
+%\font\wmweb=''Baskerville:color=FF1493'' at 8pt
+%{\wm 
+%	\begin{textblock}{1}(0,0)
+%		\rotatebox{-90}{\parbox{500mm}{
+%			Typeset by Alessandro Plasmati with \XeTeX\  \today\ for 
+%			{\wmweb \href{http://www.aleplasmati.comuv.com}{aleplasmati.comuv.com}}
+%		}
+%	}
+%	\end{textblock}
+%}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%     TITLE NAME
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{empty} % non-numbered pages
 
+\font\fb=''[cmr10]'' %for use with \LaTeX command
 
-\namesection{Nikhil}{Gupta}
-{ \urlstyle{same}
-	\faGlobe \hspace{0mm} \url{http://ngupta.me} \\
-	\faEnvelope \hspace{0mm} \href{mailto:116CS0183@nitrtkl.ac.in}{116CS0183@nitrtkl.ac.in}
-}
+%--------------------TITLE-------------
+\par{\centering
+		{\Huge Nikhil Gupta
+	}\bigskip\par}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%     COLUMN ONE
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%--------------------SECTIONS-----------------------------------
+%Section: Personal Data
+\section{Personal Data}
 
-\begin{minipage}[t]{0.33\textwidth} 
+\begin{tabular}{rl}
+    \textsc{Date of Birth:} & 22 April 1998 \\
+    \textsc{Address:}   & Tintoliyia Shanti Chowk, Biratnagar, Nepal \\
+    \textsc{Phone:}     & +917873722149\\
+    \textsc{Website:}     & \url {https://ngupta.me} \\
+    \textsc{email:}     & \href{mailto:nguptaa183@gmail.com}{nguptaa183@gmail.com}\\
+    \textsc{GitHub:}     & \url {https://github.com/nguptaa} \\
+\end{tabular}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     EDUCATION
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Education} 
-
-\subsection{National Institute}
-\subsection{of Technology, Rourkela}
-\descript{BTech in Computer Science}
-\descript{\& Engineering}
-Expected Grad: May 2020 \\
-\sectionsep
-
-\subsection{Liverpool International}
-\subsection{College, Nepal}
-\descript{Intermediate in Science}
-Grad: May 2015 \\
-\sectionsep
+\section{Career Objective}
+\footnotesize{To achieve a position where I can utilize my knowledge and skills for the betterment of the organization and build products that ease mankind.}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     LINKS
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Links} 
-\faGithub \hspace{0mm} Github:// \href{https://github.com/nguptaa}{\custombold{nguptaa}} \\
-\faLinkedinSquare \hspace{0mm} LinkedIn://  \href{https://www.linkedin.com/in/nguptaa}{\custombold{nguptaa}} \\
-% YouTube://  \href{https://www.youtube.com/user/DeedyDash007}{\custombold{DeedyDash007}} \\
-\faFacebookSquare \hspace{0mm} Facebook://  \href{https://facebook.com/nguptaa183}{\custombold{nguptaa183}} \\
-\faTwitter \hspace{0mm} Twitter://  \href{https://twitter.com/ngupta183}{\custombold{@ngupta183}} \\
-% Quora://  \href{https://www.quora.com/Debarghya-Das}{\custombold{Debarghya-Das}}
-\sectionsep
+%Section: Education
+\section{Education}
+\begin{tabular}{rl}	
+ \textsc{Current} & Bachelor of Technology in Computer Science and Engineering,\\ & \textbf{National Institute Of Technology}, Rourkela\\
+%  &\normalsize \textsc{CGPA}: 0/0
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     COURSEWORK
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\\ \\
+\textsc{2015} & Intermediate in \textsc{Science},\\ & \textbf{Liverpool International College}\\
+% &\normalsize \textsc{Percentage}: 0\%
 
-\section{Coursework}
-% \subsection{Graduate}
-% Advanced Machine Learning \\
-% Open Source Software Engineering \\
-% Advanced Interactive Graphics \\
-% Compilers + Practicum \\
-% Cloud Computing \\
-% \sectionsep
+\\ \\
+\textsc{2013} & Matriculation,\\ & \textbf{Bal Kalyan Vidya Mandir Secondary School}\\
+% &\normalsize \textsc{Percentage}: 0\%\\
 
-\subsection{Undergraduate}
-Data Structures and Algorithms \\
-Database Management Systems\\
-Operating Systems Design\\
-Principles of Programming Language\\
-Theory of Computation\\
-Microprocessors \& Microcontrollers\\ 
-Data Communication\\
-Algorithm Analysis and Design\\
-Advanced Engineering Mathematics\\
-Computer Organization \& Architecture\\
-% Analog/Digital Electronics\\
-% Engineering Mechanics\\
-% Physics of Quantum World\\
-
-\sectionsep
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     SKILLS
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Skills}
-\subsection{Programming}
-\descript{Languages:}
-Python* \textbullet{} C/C++ \textbullet{} JavaScript \\
-PHP* \textbullet{} HTML* \textbullet{} CSS* \\ 
-\descript{Libraries/Frameworks:}
-jQuery \textbullet{} NodeJS \textbullet{} Bootstrap  \\
-ExpressJS\\
-\descript{Databases:}
-MySQL* \textbullet{} MongoDB\\
-\descript{Familiar:}
-Git \textbullet{} GitHub \textbullet{} Shell
-\sectionsep
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%     COLUMN TWO
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\end{minipage} 
-\hfill
-\begin{minipage}[t]{0.66\textwidth} 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     Projects
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\end{tabular}
+%section Projects
 \section{Projects}
+\begin{tabular}{r|p{11cm}}
 
-\runsubsection{Microsoft Campus Club Website}\\
-% \descript{| KPCB Fellow + Software Engineering Intern }
-\location{May - July, 2018}
-% \vspace{\topsep} % Hacky fix for awkward extra vertical space
-Developed a fully responsive website(both frontend and backend) for the club throughout the summer from scratch completely on my own. Temporarily it's hosted at \url{https://msclubnitrkl.000webhostapp.com} Soon it will be live on NIT Rourkela subdomain. HTML, CSS, JavaScript are used in the frontend part, PHP in the backend and MySQL in the database.
-\sectionsep
+\textsc{Sentiment Analysis}&\textsc{Jan, 2019} \textbf{(Text Mining)}\\
+&\footnotesize{A python script written out of a curiosity to know the reaction of peoples of my country Nepal on newly elected PM. The script basically scrapes all the top tweets on PM topic and based on the user response it performs sentiment analysis on it and determines whether the opinion is positive, negative or neutral. }\\ \\
 
-\runsubsection{NIT Rourkela Voice (CMS)}\\
-% \descript{| Software Engineering Intern }
-\location{March - April, 2018}
-NITRkl-voice is a content management system which I made for my DBMS project under Prof. Korra Sathya Babu. I coded both frontend and backend from scratch completely on my own. Temporarily it's hosted at \url{https://nikhilgupta.000webhostapp.com}. HTML, CSS, JavaScript are used in the frontend part, PHP in the backend and MySQL in the database.
-\sectionsep
+\textsc{Movie TV Show Notifier}&\textsc{Nov, 2018} \textbf{(Web Scraping)}\\
+&\footnotesize{A python script to send a user an email that contains information like release dates of the entered Movie/TV Show. It's written in python 3. All you need is to run the script, provide your email address and list of Movie/TV Shows you want to get notified. }\\ \\
 
-\runsubsection{Schedule Bot}\\
-% \descript{| Software Engineering Intern }
-\location{March - April, 2018}
-Schedule bot is a messenger based bot which I made during my freshman year when I was too annoyed with my paper timetable as I have to see it every other hour. This bot helps a person by letting them know their particular subject at a particular time when provided with respective section and lab group.
-\sectionsep
+\textsc{Schedule Bot}&\textsc{May - July, 2017} \textbf{(Natural Language Processing)}\\ &\footnotesize{Schedule Bot is a messenger based NLP(Natural Language Processing) bot which I made during my freshman year when I was too annoyed with my paper timetable as I have to see it every other hour. This bot helps a person by letting them know their particular subject at a particular time when provided with respective section and lab group. }\\ \\
+
+\textsc{Microsoft Campus Club}&\textsc{May - July, 2018} \textbf{(Full Stack Website)}\\ &\footnotesize{Developed a full stack website for the club throughout the summer from scratch. Temporarily it's hosted at \url{https://msclubnitrkl.000webhostapp.com} Soon it will be live on NIT Rourkela subdomain. HTML, CSS, JavaScript are used in the frontend part, PHP in the backend and MySQL in the database. }\\ \\
+
+\textsc{NIT Rourkela Voice}&\textsc{March - April, 2018} \textbf{(Content Management System)}\\ &\footnotesize{NITRkl-voice is a full stack content management system which I made for my DBMS project under Prof. Korra Sathya Babu. Temporarily it's hosted at \url{https://nikhilgupta.000webhostapp.com}. HTML, CSS, JavaScript are used in the frontend part, PHP in the backend and MySQL in the database.  }\\ \\
 
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     Leadership
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Leadership}
-\runsubsection{Microsoft Campus Club}
-\descript{| Technical Coordinator}
-\location{2018 - Present | Rourkela, OD}
-Microsoft Campus Club is the most active, innovative and creative technical club that our institute has to date. I have never been so obsessed with technologies and never been so open-minded before I joined MCC. I joined the club during my freshmen year and was assigned as club technical coordinator at the end of my sophomore year.
-\sectionsep
-
-\runsubsection{Codenigma'18}
-\descript{| Event Coordinator}
-\location{2018 | Rourkela, OD}
-Codenigma is competitive programming challenge hosted on CodeChef/HackerRank and is conducted by Microsoft Campus Club. I along with other two coordinators made sure that everything runs smoothly during the event. I also made a few questions which were later uploaded in the programming challenge. The event was very successful compared to last years. We saw a growth of 200\% in total users who signed up for the competition compared to last year.
-\sectionsep
-
-\runsubsection{NITRUTSAV'18}
-\descript{| Event Coordinator}
-\location{2018 | Rourkela, OD}
-NITRUTSAV popularly known as NU is the annual cultural festival of the National Institute of Technology, Rourkela. It is an annual three-day-long carnival held towards the beginning of the month of February, organized by the Literary Society in association with the Art and Cultural Society of the Student Activity Center, NIT Rourkela, it includes various cultural performances and events based on a common theme. As being the event coordinator, I led a team of 15 volunteers and ensured that everything before and during the event runs smoothly from conception to clean up.
-\sectionsep
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     AWARDS
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% \section{Awards} 
-% \begin{tabular}{rll}
-% 2014	     & top 52/2500  & KPCB Engineering Fellow\\
-% 2014	     & 2\textsuperscript{nd} most points  & Google Code Jam, Qualification Round\\
-% 2014	     & 1\textsuperscript{st}/50  & Microsoft Coding Competition, Cornell\\
-% 2013	     & National  & Jump Trading Challenge Finalist\\
-% 2013     & 7\textsuperscript{th}/120 & CS 3410 Cache Race Bot Tournament  \\
-% 2012     & 2\textsuperscript{nd}/150 & CS 3110 Biannual Intra-Class Bot Tournament \\
-% 2011     & National & Indian National Mathematics Olympiad (INMO) Finalist \\
-% 2010     & National & Comp. Soc. of India's National Programming Contest\\
-% \end{tabular}
-% \sectionsep
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     SOCIETIES
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% \section{Societies} 
-
-% \begin{tabular}{rll}
-% 2014 	& top 12\%ile    & Tau Beta Pi Engineering Honor Society\\
-% 2014   & National   & The Global Leadership and Education Forum (tGELF)\\
-% 2012   &  National  & Golden Key International Honor Society\\
-% 2012   &  National   & National Society of Collegiate Scholars\\
-% \end{tabular}
-% \sectionsep
-
-\end{minipage}
-\linebreak \linebreak 
- \begin{flushleft} 
- *More than 1000 lines.
- \end{flushleft}
+\multicolumn{2}{c}{}
+\end{tabular}
+%Section: Work Experience at the top
+\section{Work Experience}
+\begin{tabular}{r|p{11cm}}
  
-\end{document}  \documentclass[]{article}
+ \textsc{Dec 2018} & Winter Intern at \textsc{KWoC}, IIT Kharagpur \\&\footnotesize{Contributed in developing information portal of National Institute of Technology, Durgapur. Also added continuous integration and codecoverage in the github repository for better integration.} \url{https://github.com/monsij/StudentPortal}\\
+%  \multicolumn{2}{c}{} \\
+\end{tabular}
+
+%section Work Experience
+% \section{Work Experience}
+% \begin{tabular}{r|p{11cm}}
+% \textsc{Time Period}&\textsc{Position at Company Name, Location}\\ &\footnotesize{Brief Description}\\\multicolumn{2}{c}{}
+% \end{tabular}
+
+\section{Technical Skills}
+\begin{tabular}{rl}
+ General Programming:& Python, C/C++, HTML, CSS, PHP, JavaScript\\
+ Databases:& MySQL \\
+ Frameworks and Libraries:& Bootstrap, jQuery \\
+ Other Software: &  MS Office, Photoshop, Final Cut Pro, Git, GitHub\\
+ 
+\end{tabular}
+\section{Soft Skills}
+\begin{tabular}{rl}
+\textsc{Languages} &English - Professional Fluency\\&Hindi - Basic Fluency \\&Nepali - Mother Tongue\\ \\
+\textsc{Soft Skills} &Communication, Problem Solving  \\ &Teamwork, Leadership \\ &Adaptability, Time Management\end{tabular}
+
+\section{Extra Curricular Activities}
+\begin{tabular}{r|p{11cm}}
+\textsc{Microsoft Campus Club} & \emph{Technical Coordinator , 2018 - Present}\\
+&\footnotesize{Microsoft Campus Club is the most active, innovative and creative technical club that our institute has to date. I have never been so obsessed with technologies and never been so open-minded before I joined MCC. I joined the club during my freshmen year and was assigned as club technical coordinator at the end of my sophomore year. }\\ \\
+
+\textsc{Codenigma'18} & \emph{Event Coordinator , 2018}\\
+&\footnotesize{Codenigma is competitive programming challenge hosted on CodeChef/HackerRank and is conducted by Microsoft Campus Club. I along with other two coordinators made sure that everything runs smoothly during the event. I also made a few questions which were later uploaded in the programming challenge. The event was very successful compared to last years. We saw a growth of 200\% in total users who signed up for the competition compared to last year. }\\ \\
+
+\textsc{NITRUTSAV'18} & \emph{Event Coordinator , 2018}\\
+&\footnotesize{NITRUTSAV is an annual three-day-long carnival held towards the beginning of the month of February, organised by the Literary Society in association with the Art and Cultural Society of the Student Activity Center, NIT Rourkela, it includes various cultural performances and events based on a common theme. As being the event coordinator, I led a team of 15 volunteers and made sure that everything before and during the event runs smoothly from conception to clean up. }\\ \\
+ 
+
+\end{tabular}
+
+\section{Personal Development}
+\begin{tabular}{rl}
+\textsc{Feb} 2017 & Learn Git by Codecademy \normalsize\\
+\textsc{March} 2017 & Complete Python Bootcamp by Jose Portilla \normalsize\\
+\textsc{June} 2017 & Machine Learning by Andrew Ng \normalsize\\
+% \textsc{August} 2017 & Machine Learning A-Z™ by Kirill Eremenko, Hadelin de Ponteves \normalsize\\
+\textsc{Sep} 2017 & Python for Data Structures, Algorithms, and Interviews by Jose Portilla \normalsize\\
+\textsc{Nov} 2017 & The Web Developer Bootcamp by Colt Steele \normalsize\\
+\textsc{Dec} 2017 & PHP for Beginners - Become a PHP Master - CMS Project by Edwin Diaz \normalsize\\
+\end{tabular}
+
+
+\section{Interests and Activities}
+Machine Learning, Artificial Intelligence, Data Science, Bots\\
+Deep Learning, Neural Network, Web Development, Open Source\\
+TechCrunch, Medium, Quora, Travelling, Badminton, Fitness\\
+
+
+%\newpage
+%\hypertarget{gmat}{\textsc{Gmat}\setmainfont{LMRoman10 Regular}\textregistered\setmainfont[SmallCapsFont=Fontin-SmallCaps]{Fontin-Regular}}
+
+%\XeTeXpdffile ''GMAT.pdf'' page 1 scaled 800
+
+\end{document}
